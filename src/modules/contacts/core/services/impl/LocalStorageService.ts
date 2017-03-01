@@ -10,19 +10,17 @@ export class LocalStorageService {
     }
 
     public set<T>(key: string, ...data: Array<T>): void {
-        let allItems: Array<T> = this.getByKey(KEY_STORAGE + key)  || [];
-        // append new data
-        Array.prototype.push.apply(allItems, data);
-        localStorage.setItem(KEY_STORAGE + key, JSON.stringify(allItems));
+        this.update<T>(key, ...data);
     }
 
     public get<T>(key: string): Array<T> {
-        return this.getByKey(KEY_STORAGE + key)  || [];
+        return this.getByKey(KEY_STORAGE + key) || [];
     }
 
     public update<T>(key: string, ...data: Array<T>): void {
         localStorage.setItem(KEY_STORAGE + key, JSON.stringify(data));
     }
+
     private getByKey(key: string) {
         return JSON.parse(localStorage.getItem(key));
     }
