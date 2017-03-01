@@ -1,7 +1,5 @@
 import * as angular from "angular";
 
-import {StarComponent} from "./components/star/StarComponent";
-import {TwitterApplicationComponent} from "./components/twitterApplication/TwitterApplicationComponent";
+import {ContactItApplicationComponent} from "./components/contactitApplication/ContactItApplication";
 angular.module("app.application", [])
-    .component("twitterApplication", new TwitterApplicationComponent())
-    .component("star",  new StarComponent());
+    .component("contactIt", new ContactItApplicationComponent());
